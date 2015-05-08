@@ -6,9 +6,10 @@
  * Released under the MIT license.
  */
 (function($) {
-var dragging, placeholders = $();
 $.fn.sortable = function(options) {
+	var dragging, placeholders = $();
 	var method = String(options);
+	var original = this;
 	options = $.extend({
 		connectWith: false
 	}, options);
@@ -29,11 +30,17 @@ $.fn.sortable = function(options) {
 			isHandle = false;
 		});
 		$(this).data('items', options.items)
+
 		placeholders = placeholders.add(placeholder);
 		if (options.connectWith) {
 			$(options.connectWith).add(this).data('connectWith', options.connectWith);
 		}
+
 		items.attr('draggable', 'true').on('dragstart.h5s', function(e) {
+			if(this !== e.target){
+				return true;
+			}
+
 			if (options.handle && !isHandle) {
 				return false;
 			}
@@ -49,7 +56,7 @@ $.fn.sortable = function(options) {
 			dragging.removeClass('sortable-dragging').show();
 			placeholders.detach();
 			if (index != dragging.index()) {
-				dragging.parent().trigger('sortupdate', {item: dragging});
+				original.triggerHandler('sortupdate', {item: dragging});
 			}
 			dragging = null;
 		}).not('a[href], img').on('selectstart.h5s', function() {
