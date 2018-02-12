@@ -1,0 +1,19 @@
+{
+  "name": "html5sortable",
+  "version": "1.0.0",
+  "description": "This project is not mantained anymore. For an updated version please use [voidberg's fork](https://github.com/voidberg/html5sortable).",
+  "main": "jquery.sortable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teachingcom/html5sortable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teachingcom/html5sortable/issues"
+  },
+  "homepage": "https://github.com/teachingcom/html5sortable#readme"
+}
